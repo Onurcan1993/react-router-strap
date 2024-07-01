@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   /* background-image: url(../../public/vite.svg); */
+  background-color: yellow;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
