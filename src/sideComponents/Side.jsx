@@ -12,7 +12,7 @@ export default function Side({ state }) {
   ]);
 
   return (
-    <Container>
+    <Container style={{ backgroundImage: `url(${backLogo})` }}>
       <img src={backLogo} style={{ width: "50px", height: "50px" }}></img>
       {steps.map((item, index) => (
         <Steps
