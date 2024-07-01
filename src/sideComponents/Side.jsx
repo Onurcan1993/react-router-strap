@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container } from "./side.styled";
+import { Container, GeneralDiv, Image } from "./side.styled";
 import Steps from "./Steps";
 import backLogo from "../../public/bg-sidebar-desktop.svg";
 
@@ -13,24 +13,17 @@ export default function Side({ state }) {
 
   return (
     <Container>
-      <div
-        style={{
-          width: "50px",
-          height: "50px",
-          backgroundImage: "url(`${backLogo}`)",
-        }}
-      >
-        aaaaaa
-      </div>
-      <img src={backLogo} style={{ width: "50px", height: "50px" }}></img>
-      {steps.map((item, index) => (
-        <Steps
-          primary={index + 1 === state ? true : false}
-          key={index}
-          number={index + 1}
-          name={item}
-        />
-      ))}
+      <Image src={backLogo} />
+      <GeneralDiv>
+        {steps.map((item, index) => (
+          <Steps
+            primary={index + 1 === state ? true : false}
+            key={index}
+            number={index + 1}
+            name={item}
+          />
+        ))}
+      </GeneralDiv>
     </Container>
   );
 }

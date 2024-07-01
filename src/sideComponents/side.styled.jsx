@@ -1,34 +1,42 @@
 import styled from "styled-components";
-// import Logo from "../../public/vite.svg";
+import Logo from "../../public/bg-sidebar-desktop.svg";
 
 export const Container = styled.div`
-  /* background-image: url(../../public/vite.svg); */
-  background-color: yellow;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
   height: 100%;
   width: 35%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: relative;
   @media only screen and (max-width: 480px) {
     width: 100vw;
     flex-direction: row;
     border-radius: 0;
-    background-position: right 50% bottom 17%;
     height: 25vh;
     justify-content: center;
   }
 `;
 
+export const Image = styled.img`
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  @media only screen and (max-width: 480px) {
+    object-fit: cover;
+    object-position: bottom;
+  }
+`;
+
 export const Step = styled.div`
-  width: 80%;
+  width: 100%;
+  height: 100%;
   padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  gap: 10px;
   margin: 5px 0;
   @media only screen and (max-width: 480px) {
     flex-direction: row;
@@ -78,8 +86,20 @@ export const StepNumber = styled.span`
   font-weight: 400;
 `;
 
-export const StepTitle = styled.h3`
+export const StepTitle = styled.h6`
   color: white;
   margin: 0;
   font-weight: 500;
+`;
+
+export const GeneralDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  @media only screen and (max-width: 480px) {
+    flex-direction: row;
+    gap: 30px;
+  }
 `;
