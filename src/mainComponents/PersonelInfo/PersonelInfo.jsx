@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
 
@@ -10,7 +10,6 @@ import {
   FormContainer,
   Button,
 } from "./Personel.styled";
-import { isValidElement } from "react";
 
 const initialForm = {
   text: "",
@@ -20,19 +19,16 @@ const initialForm = {
 
 export default function PersonelInfo() {
   const [formData, setFormData] = useState(initialForm);
-  const [validText, setValidText] = useState(false);
-  const [validEmail, setValidEmail] = useState(false);
-  const [validPhone, setValidPhone] = useState(false);
+  const [validText, setValidText] = useState(true);
+  const [validEmail, setValidEmail] = useState(true);
+  const [validPhone, setValidPhone] = useState(true);
   const [valid, setValid] = useState(false);
+
   const history = useHistory();
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
-
-  const clickHandler = () => {
-    history.push("/step2");
-  };
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
 
   const isValidEmail = (email) => {
     return email.match(/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim);
@@ -42,24 +38,47 @@ export default function PersonelInfo() {
     return phone.match(/^([+]?\d{1,2}[-\s]?|)\d{3}[-\s]?\d{3}[-\s]?\d{4}$/);
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
+  const clickHandler = () => {
+    nameRef.current.props.value === ""
+      ? setValidText(false)
+      : setValidText(true);
+    emailRef.current.props.value === ""
+      ? setValidEmail(false)
+      : setValidEmail(true);
+    phoneRef.current.props.value === ""
+      ? setValidPhone(false)
+      : setValidPhone(true);
+
+    if (
+      isValidEmail(emailRef.current.props.value) &&
+      isValidPhone(phoneRef.current.props.value)
+    ) {
+      history.push("/step2");
+    } else {
+      return;
+    }
+  };
+
   const changeHandler = (e) => {
     const { name, value, id } = e.target;
     setFormData({ ...formData, [name]: value });
 
     if (id === "text") {
-      name === "text" && value.length > 0
-        ? setValidText(true)
-        : setValidText(false);
+      name === "text" ? setValidText(true) : setValidText(false);
     }
 
     if (id === "email") {
-      name === "email" && value.length > 0 && isValidEmail(value)
+      name === "email" && isValidEmail(value)
         ? setValidEmail(true)
         : setValidEmail(false);
     }
 
     if (id === "number") {
-      name === "phone" && isValidPhone(value) && value.length > 0
+      name === "phone" && isValidPhone(value)
         ? setValidPhone(true)
         : setValidPhone(false);
     }
@@ -82,6 +101,7 @@ export default function PersonelInfo() {
           <FormGroup style={{ height: "70px" }}>
             <Label htmlFor="text">Name</Label>
             <Input
+              ref={nameRef}
               bsSize="sm"
               id="text"
               type="text"
@@ -97,6 +117,7 @@ export default function PersonelInfo() {
           <FormGroup style={{ height: "70px" }}>
             <Label htmlFor="email">Email</Label>
             <Input
+              ref={emailRef}
               bsSize="sm"
               id="email"
               type="text"
@@ -113,6 +134,7 @@ export default function PersonelInfo() {
           <FormGroup style={{ height: "70px" }}>
             <Label htmlFor="number">Tel</Label>
             <Input
+              ref={phoneRef}
               autoComplete="off"
               bsSize="sm"
               id="number"
@@ -137,7 +159,6 @@ export default function PersonelInfo() {
               onClick={clickHandler}
               style={{ marginTop: "10px" }}
               type="submit"
-              disabled={!valid}
             >
               Next Step
             </Button>

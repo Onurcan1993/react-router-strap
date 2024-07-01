@@ -48,6 +48,8 @@ export default function SelectPlan({ planHandler, finalPlanHandler }) {
 
   const isInitialMount = useRef(true);
 
+  const arcadeRef = useRef(null);
+
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
@@ -115,6 +117,10 @@ export default function SelectPlan({ planHandler, finalPlanHandler }) {
     finalPlanHandler(finalPlan);
   }, [finalPlan]);
 
+  useEffect(() => {
+    arcadeRef.current.click();
+  }, []);
+
   return (
     <Container>
       <PersonelTitle>
@@ -125,7 +131,12 @@ export default function SelectPlan({ planHandler, finalPlanHandler }) {
       </PersonelTitle>
       <Plan>
         <PlanBox>
-          <Arcade id="arcade" primary={primary} onClick={planClickHandler}>
+          <Arcade
+            ref={arcadeRef}
+            id="arcade"
+            primary={primary}
+            onClick={planClickHandler}
+          >
             <Image src={arcadeLogo} />
             <H3>Arcade</H3>
             <Price>

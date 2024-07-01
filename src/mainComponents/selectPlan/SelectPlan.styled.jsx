@@ -122,7 +122,7 @@ export const MounthOrYear = styled.div`
 `;
 
 export const LeftText = styled.p`
-  font-size: 11px;
+  font-size: 13px;
   color: ${(props) => (props.active ? "#9699ab" : "#02295a")};
   margin-right: 15px;
   font-weight: bold;
@@ -132,7 +132,7 @@ export const LeftText = styled.p`
 `;
 
 export const RightText = styled.p`
-  font-size: 11px;
+  font-size: 13px;
   color: ${(props) => (!props.active ? "#9699ab" : "#02295a")};
   margin-left: 15px;
   font-weight: bold;
@@ -147,7 +147,7 @@ export const Click = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: ${(props) => (props.active ? "flex-end" : "flex-start")};
-  height: 35%;
+  height: 50%;
   cursor: pointer;
   -moz-border-radius: 15px; //for mozilla support
   -webkit-border-radius: 15px; //for chrome support

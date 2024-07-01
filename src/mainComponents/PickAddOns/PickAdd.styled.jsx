@@ -14,8 +14,9 @@ export const AddPlanSubDiv = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   border-radius: 8px;
+  height: 25%;
   border: 1px solid
     ${(props) =>
       props.active1 || props.active2 || props.active3 ? "#473dff" : "#9699ab"};
@@ -44,13 +45,13 @@ export const AddTitle = styled.h6`
 `;
 
 export const AddExplanation = styled.p`
-  font-size: 9px;
+  font-size: 12px;
   color: #9699ab;
-  margin-top: 5px;
+  /* margin-top: 5px; */
 `;
 
 export const PlanPrice = styled.span`
-  font-size: 10px;
+  font-size: 12px;
   color: #473dff;
 `;
 
@@ -59,7 +60,7 @@ export const NextOrPrevios = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 70px;
+  /* margin-top: 50px; */
   @media only screen and (max-width: 480px) {
     margin-top: 40px;
     background-color: white;
