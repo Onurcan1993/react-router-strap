@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+*{
+    font-family: "Ubuntu", sans-serif;
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f6ff;
+}
+
+
+
+#text::placeholder, #email::placeholder, #number::placeholder{
+    color: #a8a1abe4;
+}
