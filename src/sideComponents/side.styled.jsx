@@ -1,8 +1,9 @@
 import styled from "styled-components";
-// import backLogo from "../assets/images/bg-sidebar-desktop.svg";
-import "../assets/images/";
+import backLogo from "../../public/bg-sidebar-desktop.svg";
+
+export const url = `${backLogo}`;
 export const Container = styled.div`
-  background-image: url("C:\Users\ASUS\OneDrive - hacettepe.edu.tr\Masaüstü\Vite-Project\vite-project\src\assets\images\bg-sidebar-desktop.svg");
+  background-image: url(${backLogo});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
