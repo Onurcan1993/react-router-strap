@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Logo from "../../public/vite.svg";
 
 export const Container = styled.div`
-  background-image: url(${Logo});
+  background-image: "url('${Logo}')";
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
