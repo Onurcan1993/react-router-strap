@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import backLogo from "../assets/images/bg-sidebar-desktop.svg";
+// import backLogo from "../assets/images/bg-sidebar-desktop.svg";
 
 export const Container = styled.div`
-  background-image: url(${backLogo});
+  background-image: url("../assets/images/bg-sidebar-desktop.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
