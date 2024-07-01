@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "./side.styled";
 import Steps from "./Steps";
+import backLogo from "../../public/bg-sidebar-desktop.svg";
 
 export default function Side({ state }) {
   const [steps, setSteps] = useState([
@@ -12,6 +13,7 @@ export default function Side({ state }) {
 
   return (
     <Container>
+      <img src={backLogo}></img>
       {steps.map((item, index) => (
         <Steps
           primary={index + 1 === state ? true : false}
