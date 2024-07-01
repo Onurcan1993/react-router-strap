@@ -60,6 +60,7 @@ Error generating stack: `+i.message+`
   }
 `,xy=I.div`
   /* background-image: url(../../public/vite.svg); */
+  background-color: yellow;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
